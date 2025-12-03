@@ -1,4 +1,4 @@
-from lab0202_employee_factory import EmployeeFactory
+from .lab0202_employee_factory import EmployeeFactory
 
 def main():
     print("=" * 70)

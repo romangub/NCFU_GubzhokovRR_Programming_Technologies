@@ -1,0 +1,62 @@
+{
+  "department_name": "IT Департамент",
+  "employees": [
+    {
+      "class_name": "Employee",
+      "id": 100,
+      "name": "Иван Иванов",
+      "department": "IT Департамент",
+      "base_salary": 50000
+    },
+    {
+      "class_name": "Employee",
+      "id": 101,
+      "name": "Анна Петрова",
+      "department": "IT Департамент",
+      "base_salary": 45000
+    },
+    {
+      "class_name": "Manager",
+      "id": 102,
+      "name": "Петр Сидоров",
+      "department": "IT Департамент",
+      "base_salary": 70000,
+      "bonus": 15000.0
+    },
+    {
+      "class_name": "Developer",
+      "id": 103,
+      "name": "Дмитрий Орлов",
+      "department": "IT Департамент",
+      "base_salary": 60000,
+      "tech_stack": [
+        "Python",
+        "Django",
+        "PostgreSQL"
+      ],
+      "seniority_level": "middle"
+    },
+    {
+      "class_name": "Developer",
+      "id": 104,
+      "name": "Екатерина Белова",
+      "department": "IT Департамент",
+      "base_salary": 65000,
+      "tech_stack": [
+        "Java",
+        "Spring",
+        "Hibernate"
+      ],
+      "seniority_level": "senior"
+    },
+    {
+      "class_name": "Salesperson",
+      "id": 105,
+      "name": "Мария Смирнова",
+      "department": "IT Департамент",
+      "base_salary": 40000,
+      "commission_rate": 0.1,
+      "sales_volume": 500000.0
+    }
+  ]
+}

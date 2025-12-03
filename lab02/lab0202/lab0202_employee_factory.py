@@ -1,7 +1,7 @@
-from lab0202_employee import Employee
-from lab0202_manager import Manager
-from lab0202_developer import Developer
-from lab0202_salesperson import Salesperson
+from .lab0202_employee import Employee
+from .lab0202_manager import Manager
+from .lab0202_developer import Developer
+from .lab0202_salesperson import Salesperson
 
 class EmployeeFactory:
     
