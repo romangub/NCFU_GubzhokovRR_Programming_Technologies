@@ -1,0 +1,329 @@
+@startuml test
+
+skinparam backgroundColor #1E1E1E
+skinparam class {
+    BackgroundColor #2D2D30
+    FontColor #FFFFFF
+    BorderColor #BBBBBB
+    ArrowColor #BBBBBB
+    FontSize 13
+    FontName Consolas
+}
+
+skinparam note {
+    BackgroundColor #2D2D30
+    BorderColor #BBBBBB
+    FontColor #FFFFFF
+}
+
+'====================================================
+abstract class AbstractEmployee <<Abstract>> {
+    - __id: int
+    - __name: str
+    - __department: str
+    - __base_salary: float
+    --
+    + {abstract} calculate_salary(): float
+    + {abstract} get_info(): str
+    + to_dict(): Dict[str, Any]
+    + {static} from_dict(data: Dict[str, Any]): AbstractEmployee
+    + __eq__(other: Any): bool
+    + __lt__(other: Any): bool
+    + __add__(other: Any): float
+    + __radd__(other: Any): float
+    + __str__(): str
+    + __repr__(): str
+    + {property} id: int
+    + {property} name: str
+    + {property} department: str
+    + {property} base_salary: float
+    + {property} salary: float
+}
+'====================================================
+
+'====================================================
+class Employee <<Concrete>> {
+    + __init__(id: int, name: str, department: str, base_salary: float)
+    + calculate_salary(): float
+    + get_info(): str
+    + to_dict(): Dict[str, Any]
+    + {classmethod} from_dict(data: Dict[str, Any]): Employee
+    + __str__(): str
+}
+AbstractEmployee <|-- Employee
+'====================================================
+
+'====================================================
+class Manager <<Concrete>> {
+    - __bonus: float
+    --
+    + __init__(id: int, name: str, department: str, base_salary: float, bonus: float)
+    + {property} bonus: float
+    + calculate_salary(): float
+    + get_info(): str
+    + to_dict(): Dict[str, Any]
+    + {classmethod} from_dict(data: Dict[str, Any]): Manager
+    + __str__(): str
+    + __repr__(): str
+}
+Employee <|-- Manager
+'====================================================
+
+'====================================================
+class Developer <<Concrete>> {
+    - __tech_stack: List[str]
+    - __seniority_level: str
+    --
+    + __init__(id: int, name: str, department: str, base_salary: float, tech_stack: List[str], seniority_level: str)
+    + {property} tech_stack: List[str]
+    + {property} seniority_level: str
+    + {property} seniority_coefficient: float
+    + add_skill(new_skill: str): None
+    + calculate_salary(): float
+    + get_info(): str
+    + to_dict(): Dict[str, Any]
+    + {classmethod} from_dict(data: Dict[str, Any]): Developer
+    + __iter__(): Iterator[str]
+    + __str__(): str
+    + __repr__(): str
+}
+Employee <|-- Developer
+'====================================================
+
+'====================================================
+class Salesperson <<Concrete>> {
+    - __commission_rate: float
+    - __sales_volume: float
+    --
+    + __init__(id: int, name: str, department: str, base_salary: float, commission_rate: float, sales_volume: float)
+    + {property} commission_rate: float
+    + {property} sales_volume: float
+    + update_sales(amount: float): None
+    + calculate_salary(): float
+    + get_info(): str
+    + to_dict(): Dict[str, Any]
+    + {classmethod} from_dict(data: Dict[str, Any]): Salesperson
+    + __str__(): str
+    + __repr__(): str
+}
+Employee <|-- Salesperson
+'====================================================
+
+'====================================================
+class Department <<Concrete>> {
+    - name: str
+    - emp_list: List[AbstractEmployee]
+    --
+    + __init__(name: str)
+    + __iter__(): Iterator[AbstractEmployee]
+    + __len__(): int
+    + __getitem__(key): AbstractEmployee
+    + __contains__(employee: AbstractEmployee): bool
+    + __str__(): str
+    + __repr__(): str
+    --
+    + add_employee(employee: AbstractEmployee): None
+    + remove_employee(employee_id: int): None
+    + get_employees(): List[Dict[str, Any]]
+    + calculate_total_salary(): float
+    + get_employee_count(self): Dict[str, int]
+    + find_employee_by_id(employee_id: int): Optional[AbstractEmployee]
+    + to_dict(): Dict[str, Any]
+    + {classmethod} from_dict(data: Dict[str, Any]): 'Department'
+    + save_to_file(filename: str): None
+    + {classmethod} load_from_file(filename: str): 'Department'
+    + get_statistics(): Dict[str, Any]
+    + clear(): None
+    + transfer_employee_to(employee_id: int, target_department: 'Department'): None
+}
+Department o--> "many" AbstractEmployee : содержит
+AbstractEmployee --> "1" Department : работает в
+Department --> Department : target_department
+'====================================================
+
+'====================================================
+class Project <<Concrete>> {
+    - project_id: int
+    - name: str
+    - description: str
+    - start_date: str
+    - end_date: str
+    - budget: float
+    - status: str
+    - __team: List[AbstractEmployee]
+    - created_at: datetime
+    --
+    + {property} project_id: int
+    + {property} name: str
+    + {property} description: str
+    + {property} start_date: str
+    + {property} end_date: str
+    + {property} budget: float
+    + {property} status: str
+    + {property} created_at: datetime
+    + add_team_member(employee: AbstractEmployee): None
+    + remove_team_member(employee_id: int): None
+    + get_team(): List[AbstractEmployee]
+    + get_team_size(): int
+    + calculate_total_salary(): float
+    + get_project_info(): str
+    + change_status(new_status: str): None
+    + get_team_member_by_id(employee_id: int): Optional[AbstractEmployee]
+    + is_employee_in_project(employee_id: int): bool
+    + clear_team(): None
+    + get_duration_days(): int
+    + is_active(): bool
+    + is_over_budget(): bool
+    --
+    + __str__(): str
+    + __repr__(): str
+    + __len__(): int
+    + __contains__(employee: AbstractEmployee): bool
+    --
+    + to_dict(): Dict[str, Any]
+    + {classmethod} from_dict(data: Dict[str, Any]): 'Project'
+    + save_to_file(filename: str): None
+    + {classmethod} load_from_file(filename: str): 'Project'
+}
+
+Project o--> "many" AbstractEmployee : содержит в команде
+AbstractEmployee --> "0..1" Project : участвует в (опционально)
+
+note right of Project::__team
+  При уничтожении проекта — команда "распускается"
+end note
+'====================================================
+
+'====================================================
+class Exception <<built-in>>
+
+class EmployeeNotFoundError {
+    + department_name: str
+    + employee_id: str
+    + __init__(department_name: str, employee_id: str)
+}
+
+class DepartmentNotFoundError {
+    + department_name: str
+    + __init__(department_name: str)
+}
+
+class ProjectNotFoundError {
+    + project_name: str
+    + __init__(project_name: str)
+}
+
+class InvalidStatusError {
+    + project_name: str
+    + project_status: str
+    + __init__(project_name: str, project_status: str)
+}
+
+class DuplicateIdError {
+    + employee_id: str
+    + __init__(employee_id: str)
+}
+
+Exception <|-- EmployeeNotFoundError
+Exception <|-- DepartmentNotFoundError
+Exception <|-- ProjectNotFoundError
+Exception <|-- InvalidStatusError
+Exception <|-- DuplicateIdError
+
+note bottom of EmployeeNotFoundError
+  Выбрасывается при попытке обратиться
+  к ID за которым не закреплён сотрудник
+end note
+
+note bottom of DepartmentNotFoundError
+  Выбрасывается при попытке обратиться
+  к ID за которым не закреплён отдел
+end note
+
+note bottom of ProjectNotFoundError
+  Выбрасывается при попытке обратиться
+  к ID за которым не закреплён отдел
+end note
+
+note bottom of DuplicateIdError
+  Выбрасывается при попытке добавить
+  сотрудника с уже существующим ID
+end note
+
+'====================================================
+class Company <<Concrete>> {
+    - __name: str
+    - __departments: List[Department]
+    - __projects: List[Project]
+    - __employee_ids: Dict[int, str]
+    - __project_ids: Dict[int, bool]
+    --
+    + {property} name: str
+    --
+    + __init__(name: str)
+    + add_department(department: Department): void
+    + remove_department(department_name: str): void
+    + get_department(department_name: str): Department
+    + get_departments(): List[Department]
+    + add_project(project: Project): void
+    + remove_project(project_id: int): void
+    + get_project(project_id: int): Project
+    + get_projects(): List[Project]
+    + get_all_employees(): List[AbstractEmployee]
+    + find_employee_by_id(employee_id: int): List[AbstractEmployee, Department]
+    + calculate_total_monthly_cost(): float
+    + assign_employee_to_project(employee_id: int, project_id: int): void
+    + transfer_employee(employee_id: int, to_dept_name: str): void
+    + get_employees_in_multiple_projects(): List[AbstractEmployee]
+    + get_company_statistics(): Dict[str, Any]
+    + update_project_status(project_id: int, new_status: str): void
+    + to_dict(): Dict[str, Any]
+    + to_json(filepath: str = None, indent: int = 2): Optional[str]
+    + {classmethod} from_dict(data: Dict): Company
+    + {classmethod} from_json(json_str_or_file: str): Company
+    + save_to_file(filepath: str = "company_full.json"): void
+    + load_from_file(filepath: str = "company_full.json"): void
+    + validate_data_integrity(): Dict[str, Any]
+    --
+    + __str__(): str
+    + __repr__(): str
+    + __len__(): int
+    + __contains__(item): bool
+}
+
+Company o--> "many" Department : содержит
+Company o--> "many" Project     : содержит
+
+Department o--> "many" AbstractEmployee : содержит
+Project    o--> "many" AbstractEmployee : команда
+
+Company --> EmployeeNotFoundError    : raises
+Company --> DepartmentNotFoundError  : raises
+Company --> ProjectNotFoundError   : raises
+Company --> InvalidStatusError       : raises
+Company --> DuplicateIdError         : raises
+
+note right of Company
+  Company — корневой агрегат (Aggregate Root)
+  Гарантирует целостность ID сотрудников и проектов
+  Управляет жизненным циклом отделов и проектов
+end note
+'====================================================
+
+
+
+' ========== 8. ЛЕГЕНДА ==========
+legend right
+    <b>Типы отношений:</b>
+    --|> : наследование
+    *-- : композиция (сильная связь)
+    o-- : агрегация (слабая связь)
+    ..> : зависимость (использование)
+    
+    <b>Цвета:</b>
+    █ Абстрактный класс
+    █ Конкретные классы
+    █ Управляющие классы
+end legend
+
+@enduml
