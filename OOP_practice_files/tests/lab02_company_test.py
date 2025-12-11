@@ -2,7 +2,7 @@ import sys
 import os
 from datetime import date, timedelta
 
-sys.path.insert(0, "C:/Users/DezerTear/Desktop/uni/progtech/OOP")
+sys.path.insert(0, "C:/Users/DezerTear/Desktop/uni/progtech/OOP_practice_files")
 
 # Импорт классов
 from source.lab0204_company import Company
@@ -181,11 +181,11 @@ def main():
     try:
         # Сохраняем компанию в файл
         output_dir = "test_json"
-        company.save_to_file("OOP/test_json/techinnovations.json")
+        company.save_to_file("OOP_practice_files/test_json/techinnovations.json")
         
         # Загружаем обратно
         print("🔄 Загружаем компанию из файла...")
-        loaded_company = Company.from_json("OOP/test_json/techinnovations.json")
+        loaded_company = Company.from_json("OOP_practice_files/test_json/techinnovations.json")
         
         print(f"✅ Данные успешно сохранены и загружены!")
         print(f"   Оригинальная компания: {company.name}")

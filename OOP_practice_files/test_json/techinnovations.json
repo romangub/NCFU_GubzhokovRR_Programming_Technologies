@@ -198,13 +198,13 @@
   "projects": [
     {
       "budget": 250000.0,
-      "created_at": "2025-12-10T22:33:33.344734",
+      "created_at": "2025-12-11T10:24:32.522624",
       "description": "Разработка платформы искусственного интеллекта",
       "duration_days": 180,
-      "end_date": "2026-06-08",
+      "end_date": "2026-06-09",
       "name": "AI Platform",
       "project_id": 101,
-      "start_date": "2025-12-10",
+      "start_date": "2025-12-11",
       "status": "active",
       "team": [
         {
@@ -254,13 +254,13 @@
     },
     {
       "budget": 120000.0,
-      "created_at": "2025-12-10T22:33:33.344745",
+      "created_at": "2025-12-11T10:24:32.522640",
       "description": "Создание интернет-магазина",
       "duration_days": 113,
-      "end_date": "2026-04-09",
+      "end_date": "2026-04-10",
       "name": "E-Commerce Website",
       "project_id": 102,
-      "start_date": "2025-12-17",
+      "start_date": "2025-12-18",
       "status": "active",
       "team": [
         {
@@ -312,13 +312,13 @@
     },
     {
       "budget": 180000.0,
-      "created_at": "2025-12-10T22:33:33.344752",
+      "created_at": "2025-12-11T10:24:32.522651",
       "description": "Разработка мобильного приложения",
       "duration_days": 180,
-      "end_date": "2026-07-08",
+      "end_date": "2026-07-09",
       "name": "Mobile App",
       "project_id": 103,
-      "start_date": "2026-01-09",
+      "start_date": "2026-01-10",
       "status": "active",
       "team": [],
       "team_size": 0,
@@ -326,7 +326,7 @@
       "type": "Project"
     }
   ],
-  "serialized_at": "2025-12-10T22:33:33.348469",
+  "serialized_at": "2025-12-11T10:24:32.528599",
   "statistics": {
     "average_salary_per_employee": 8675.0,
     "total_departments": 3,
