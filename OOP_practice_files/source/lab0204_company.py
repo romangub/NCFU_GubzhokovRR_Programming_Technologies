@@ -5,21 +5,21 @@ from typing import List, Optional, Dict, Any
 from datetime import datetime, date
 import sqlite3
 
-sys.path.insert(0, "C:/Users/DezerTear/Desktop/uni/progtech/OOP_practice_files/source")
+sys.path.insert(0, "C:/Users/DezerTear/Desktop/uni/progtech/OOP_practice_files")
 
-from lab0203_department import Department
-from lab0204_project import Project
-from lab0202_abstract_employee import AbstractEmployee
-from lab0202_employee import Employee
-from lab0202_manager import Manager
-from lab0202_developer import Developer
-from lab0202_salesperson import Salesperson
-from lab0204_errors import EmployeeNotFoundError
-from lab0204_errors import DepartmentNotFoundError
-from lab0204_errors import ProjectNotFoundError
-from lab0204_errors import InvalidStatusError
-from lab0204_errors import DuplicateIdError
-from lab03_singleton import DatabaseConnection
+from source.lab0203_department import Department
+from source.lab0204_project import Project
+from source.lab0202_abstract_employee import AbstractEmployee
+from source.lab0202_employee import Employee
+from source.lab0202_manager import Manager
+from source.lab0202_developer import Developer
+from source.lab0202_salesperson import Salesperson
+from source.lab0204_errors import EmployeeNotFoundError
+from source.lab0204_errors import DepartmentNotFoundError
+from source.lab0204_errors import ProjectNotFoundError
+from source.lab0204_errors import InvalidStatusError
+from source.lab0204_errors import DuplicateIdError
+from source.lab03_singleton import DatabaseConnection
 
 class Company:
     MIN_PROJECT_BUDGET = 1000.0

@@ -1,4 +1,8 @@
-from lab0202_abstract_employee import AbstractEmployee
+import sys
+
+sys.path.insert(0, "C:/Users/DezerTear/Desktop/uni/progtech/OOP_practice_files")
+
+from source.lab0202_abstract_employee import AbstractEmployee
 from typing import Dict, Any
 
 class Employee(AbstractEmployee):

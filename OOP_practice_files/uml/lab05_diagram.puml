@@ -312,19 +312,229 @@ end note
 
 '====================================================
 class DatabaseConnection <<Singleton>> {
-    - _instance: Optional[DatabaseConnection]
-    - _connection: Optional[sqlite3.Connection]
-    - _lock: threading.Lock
-    - db_path: str
+    -_instance: Optional[DatabaseConnection]
+    -_lock: threading.Lock
+    -_db_path: str
+    -_connection: sqlite3.Connection
     --
-    + __init__(db_path: str)
+    -__init__(db_path: str = "company.db")
     --
-    + {property} db_path: str {readOnly}
-    + {classmethod} get_instance(): DatabaseConnection
-    + get_connection(): sqlite3.Connection
-    + close_connection(): None
-    + __enter__() -> sqlite3.Connection
-    + __exit__(exc_type, exc_val, exc_tb) -> None
+    +{static} get_instance(db_path: str = "company.db"): DatabaseConnection
+    +get_connection(): sqlite3.Connection
+    +close_connection(): None
+    +{property} db_path: str
 }
+
+note right of DatabaseConnection
+  Паттерн: Singleton
+  Гарантирует единственное подключение к SQLite
+  Автоматически создаёт папки для файла БД
+end note
+'====================================================
+
+'====================================================
+abstract class EmployeeFactory <<Abstract>> {
+    +{abstract} create_employee(**kwargs): AbstractEmployee
+    #_check_params(req_params: list, params: dict): None
+}
+
+class BasicEmployeeFactory <<Concrete>> {
+    +create_employee(**kwargs): Employee
+}
+EmployeeFactory <|-- BasicEmployeeFactory
+
+class ManagerFactory <<Concrete>> {
+    +create_employee(**kwargs): Manager
+}
+EmployeeFactory <|-- ManagerFactory
+
+class DeveloperFactory <<Concrete>> {
+    +create_employee(**kwargs): Developer
+}
+EmployeeFactory <|-- DeveloperFactory
+
+class SalespersonFactory <<Concrete>> {
+    +create_employee(**kwargs): Salesperson
+}
+EmployeeFactory <|-- SalespersonFactory
+EmployeeFactory ---> AbstractEmployee
+
+note bottom of EmployeeFactory
+  Паттерн: Factory Method
+  Каждая фабрика создаёт свой тип сотрудника
+end note
+'====================================================
+
+'====================================================
+abstract class AbstractCompanyFactory <<Abstract>> {
+    +{abstract} create_department(name: str): Department
+    +{abstract} create_project(project_id: int, name: str, ...): Project
+    +{abstract} create_employee(emp_type: str, **kwargs): AbstractEmployee
+    +{abstract} create_company(name: str): Company
+    +build_company(name: str, num_depts=2, num_employees_per_dept=3, num_projects=1): Company
+    #_get_dept_names(num: int): list[str]
+    #_choose_emp_type(): str
+    #_get_emp_kwargs(emp_type: str): Dict[str, Any]
+}
+
+class TechCompanyFactory <<Concrete>> {
+    +create_department(name: str): Department
+    +create_project(...): Project
+    +create_employee(emp_type: str, **kwargs): AbstractEmployee
+    +create_company(name: str): Company
+    #_get_dept_names(num: int): list[str]
+    #_choose_emp_type(): str
+    #_get_emp_kwargs(emp_type: str): Dict[str, Any]
+}
+AbstractCompanyFactory <|-- TechCompanyFactory
+
+class SalesCompanyFactory <<Concrete>> {
+    +create_department(name: str): Department
+    +create_project(...): Project
+    +create_employee(emp_type: str, **kwargs): AbstractEmployee
+    +create_company(name: str): Company
+    #_get_dept_names(num: int): list[str]
+    #_choose_emp_type(): str
+    #_get_emp_kwargs(emp_type: str): Dict[str, Any]
+}
+AbstractCompanyFactory <|-- SalesCompanyFactory
+
+note bottom of AbstractCompanyFactory
+  Паттерн: Abstract Factory
+  Создаёт согласованные семейства объектов для разных типов компаний
+end note
+
+AbstractCompanyFactory --> Company : создаёт
+AbstractCompanyFactory --> Department : создаёт
+AbstractCompanyFactory --> Project : создаёт
+AbstractCompanyFactory --> AbstractEmployee : создаёт
+'====================================================
+
+'====================================================
+class EmployeeBuilder <<Concrete>> {
+    -_id: Optional[int]
+    -_name: Optional[str]
+    -_department: Optional[str]
+    -_base_salary: Optional[float]
+    -_bonus: Optional[float]
+    -_tech_stack: Optional[List[str]]
+    -_seniority_level: Optional[str]
+    -_commission_rate: Optional[float]
+    -_sales_volume: Optional[float]
+    --
+    +__init__()
+    +with_id(emp_id: int): EmployeeBuilder
+    +with_name(name: str): EmployeeBuilder
+    +with_department(department: str): EmployeeBuilder
+    +with_base_salary(base_salary: float): EmployeeBuilder
+    +with_bonus(bonus: float): EmployeeBuilder
+    +with_tech_stack(tech_stack: List[str]): EmployeeBuilder
+    +add_skill(skill: str): EmployeeBuilder
+    +with_seniority_level(level: str): EmployeeBuilder
+    +with_commission_rate(rate: float): EmployeeBuilder
+    +with_sales_volume(volume: float): EmployeeBuilder
+    +build(): AbstractEmployee
+    +reset(): EmployeeBuilder
+}
+
+note right of EmployeeBuilder
+  Паттерн: Builder
+  Пошаговое создание сотрудников с fluent-интерфейсом
+  Автоматически определяет тип по указанным параметрам
+end note
+
+EmployeeBuilder --> AbstractEmployee : создаёт
+'====================================================
+
+'====================================================
+class PayrollSystem <<External>> {
+    +calculate_payroll(emp_data: Dict[str, Any]): float
+}
+
+abstract class SalaryCalc <<Interface>> {
+    +{abstract} calculate_salary(employee: AbstractEmployee): float
+}
+
+class PayrollAdapter <<Adapter>> {
+    -legacy_system: PayrollSystem
+    --
+    +__init__(legacy_system: PayrollSystem = None)
+    +calculate_salary(employee: AbstractEmployee): float
+}
+
+PayrollAdapter ..|> SalaryCalc
+PayrollAdapter o--> PayrollSystem : использует
+SalaryCalc o--> PayrollSystem
+
+note right of PayrollAdapter
+  Паттерн: Adapter
+  Адаптирует внешнюю систему к нашему интерфейсу SalaryCalc
+end note
+'====================================================
+
+'====================================================
+class EmployeeDecorator <<Abstract Decorator>> {
+    -_employee: AbstractEmployee
+    --
+    +__init__(employee: AbstractEmployee)
+    +calculate_salary(): float
+    +get_info(): str
+    +{classmethod} from_dict(data: dict): AbstractEmployee
+}
+
+EmployeeDecorator ..|> AbstractEmployee
+
+class BonusDecorator <<Concrete>> {
+    -_fixed_bonus: float
+    -_percent_bonus: float
+    --
+    +__init__(employee: AbstractEmployee, fixed_bonus=0.0, percent_bonus=0.0)
+    +calculate_salary(): float
+    +get_info(): str
+}
+EmployeeDecorator <|-- BonusDecorator
+
+class TrainingDecorator <<Concrete>> {
+    -training_name: str
+    -_salary_increase: float
+    --
+    +__init__(employee: AbstractEmployee, training_name: str, salary_increase_percent=0.10)
+    +calculate_salary(): float
+    +get_info(): str
+    +has_training(): bool
+}
+EmployeeDecorator <|-- TrainingDecorator
+
+note right of EmployeeDecorator
+  Паттерн: Decorator
+  Динамически добавляет бонусы и тренинги к сотрудникам
+end note
+
+EmployeeDecorator o--> AbstractEmployee : оборачивает
+'====================================================
+
+'====================================================
+class CompanyFacade <<Facade>> {
+    -company: Company
+    --
+    +__init__(company_name: str = "MyCompany")
+    +hire_employee(emp_type: str, name: str, department_name: str, base_salary: float, **extra_params): AbstractEmployee
+    +fire_employee(employee_id: int): None
+    +calculate_total_payroll(): float
+    +get_employee_salary(employee_id: int): float
+    +transfer_employee(employee_id: int, new_department_name: str): None
+    +get_statistics(): dict
+    +save_to_db(db_path: str): None
+    +load_from_db(db_path: str): None
+}
+
+CompanyFacade o--> Company : содержит
+CompanyFacade --> EmployeeBuilder : использует (опционально)
+
+note right of CompanyFacade
+  Паттерн: Facade
+  Упрощённый интерфейс для работы с компанией
+  Скрывает сложность найма, увольнения, расчётов
+end note
 '====================================================
 @enduml

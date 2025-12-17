@@ -3,12 +3,9 @@ import os
 from datetime import datetime, date
 from typing import List, Dict, Any, Optional
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(current_dir)
-if parent_dir not in sys.path:
-    sys.path.insert(0, parent_dir)
+sys.path.insert(0, "C:/Users/DezerTear/Desktop/uni/progtech/OOP_practice_files")
 
-from lab0202_abstract_employee import AbstractEmployee
+from source.lab0202_abstract_employee import AbstractEmployee
 
 class Project:
     
