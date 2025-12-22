@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Functional Programming Demo</title>
+    <!-- Подключаем React и ReactDOM из CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Подключаем Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            display: flex;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-list {
+            flex: 2;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .shopping-cart {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .product-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .product-item:hover {
+            background-color: #f9f9f9;
+            border-color: #007bff;
+        }
+        .in-stock {
+            color: green;
+            font-weight: bold;
+        }
+        .out-of-stock {
+            color: red;
+            font-weight: bold;
+        }
+        input, select {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .cart-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        // ИСПОЛЬЗУЕМ React ИЗ ГЛОБАЛЬНОЙ ОБЛАСТИ ВИДИМОСТИ
+        const { useState, useEffect, useCallback, useMemo } = React;
+        
+        // КОМПОНЕНТ ProductList - ваш код
+        const ProductList = ({ products, onProductSelect }) => {
+            const [filter, setFilter] = useState('');
+            const [sortOrder, setSortOrder] = useState('asc');
+
+            // useMemo для оптимизации вычислений
+            const filteredAndSortedProducts = useMemo(() => {
+                const filtered = products.filter(product =>
+                    product.name.toLowerCase().includes(filter.toLowerCase())
+                );
+                
+                return filtered.sort((a, b) => {
+                    if (sortOrder === 'asc') {
+                        return a.price - b.price;
+                    } else {
+                        return b.price - a.price;
+                    }
+                });
+            }, [products, filter, sortOrder]);
+
+            // useCallback для мемоизации функций
+            const handleProductSelect = useCallback((productId) => {
+                onProductSelect(productId);
+            }, [onProductSelect]);
+
+            // Побочные эффекты
+            useEffect(() => {
+                console.log('Products updated:', filteredAndSortedProducts.length);
+            }, [filteredAndSortedProducts]);
+
+            return (
+                <div className="product-list">
+                    <h2>Product List</h2>
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="Filter products..."
+                            value={filter}
+                            onChange={(e) => setFilter(e.target.value)}
+                        />
+                        <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+                            <option value="asc">Price: Low to High</option>
+                            <option value="desc">Price: High to Low</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        {filteredAndSortedProducts.map(product => (
+                            <ProductItem
+                                key={product.id}
+                                product={product}
+                                onSelect={handleProductSelect}
+                            />
+                        ))}
+                    </div>
+                </div>
+            );
+        };
+
+        // Чистый функциональный компонент
+        const ProductItem = React.memo(({ product, onSelect }) => {
+            return (
+                <div 
+                    className="product-item"
+                    onClick={() => onSelect(product.id)}
+                >
+                    <h3>{product.name}</h3>
+                    <p>Price: ${product.price}</p>
+                    <p>Category: {product.category}</p>
+                    <p className={product.inStock ? 'in-stock' : 'out-of-stock'}>
+                        {product.inStock ? '✓ In Stock' : '✗ Out of Stock'}
+                    </p>
+                </div>
+            );
+        });
+
+        // Кастомный хук
+        const useLocalStorage = (key, initialValue) => {
+            const [value, setValue] = useState(() => {
+                try {
+                    const item = window.localStorage.getItem(key);
+                    return item ? JSON.parse(item) : initialValue;
+                } catch (error) {
+                    console.error('Error reading from localStorage:', error);
+                    return initialValue;
+                }
+            });
+
+            const setStoredValue = useCallback((newValue) => {
+                try {
+                    setValue(newValue);
+                    window.localStorage.setItem(key, JSON.stringify(newValue));
+                } catch (error) {
+                    console.error('Error saving to localStorage:', error);
+                }
+            }, [key]);
+
+            return [value, setStoredValue];
+        };
+
+        // Использование кастомного хука
+        const ShoppingCart = () => {
+            const [cart, setCart] = useLocalStorage('shopping-cart', []);
+            const [selectedProduct, setSelectedProduct] = useState(null);
+
+            const addToCart = useCallback((product) => {
+                setCart(currentCart => {
+                    const existingItem = currentCart.find(item => item.id === product.id);
+                    if (existingItem) {
+                        return currentCart.map(item =>
+                            item.id === product.id
+                                ? { ...item, quantity: item.quantity + 1 }
+                                : item
+                        );
+                    } else {
+                        return [...currentCart, { ...product, quantity: 1 }];
+                    }
+                });
+                alert(`Added ${product.name} to cart!`);
+            }, [setCart]);
+
+            const removeFromCart = useCallback((productId) => {
+                setCart(currentCart => currentCart.filter(item => item.id !== productId));
+            }, [setCart]);
+
+            const totalItems = useMemo(() => 
+                cart.reduce((sum, item) => sum + item.quantity, 0),
+                [cart]
+            );
+
+            const totalPrice = useMemo(() => 
+                cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                [cart]
+            );
+
+            return (
+                <div className="shopping-cart">
+                    <h2>Shopping Cart ({totalItems} items)</h2>
+                    <p>Total: ${totalPrice.toFixed(2)}</p>
+                    
+                    {cart.length === 0 ? (
+                        <p>Your cart is empty</p>
+                    ) : (
+                        <div>
+                            {cart.map(item => (
+                                <div key={item.id} className="cart-item">
+                                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                        <div>
+                                            <strong>{item.name}</strong>
+                                            <br />
+                                            ${item.price} x {item.quantity} = ${(item.price * item.quantity).toFixed(2)}
+                                        </div>
+                                        <button 
+                                            onClick={() => removeFromCart(item.id)}
+                                            style={{
+                                                background: '#ff4444',
+                                                color: 'white',
+                                                border: 'none',
+                                                padding: '5px 10px',
+                                                borderRadius: '3px',
+                                                cursor: 'pointer'
+                                            }}
+                                        >
+                                            Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                    
+                    {selectedProduct && (
+                        <div style={{ marginTop: '20px', padding: '10px', background: '#e9f7fe' }}>
+                            <p>Selected product ID: {selectedProduct}</p>
+                            <button 
+                                onClick={() => {
+                                    const product = window.TEST_PRODUCTS.find(p => p.id === selectedProduct);
+                                    if (product) addToCart(product);
+                                }}
+                                style={{
+                                    background: '#28a745',
+                                    color: 'white',
+                                    border: 'none',
+                                    padding: '8px 15px',
+                                    borderRadius: '4px',
+                                    cursor: 'pointer'
+                                }}
+                            >
+                                Add Selected to Cart
+                            </button>
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        // ГЛАВНЫЙ КОМПОНЕНТ App
+        function App() {
+            // Тестовые данные продуктов
+            const [products] = useState([
+                { id: 1, name: 'Laptop', price: 999, category: 'Electronics', inStock: true },
+                { id: 2, name: 'Mouse', price: 25, category: 'Electronics', inStock: true },
+                { id: 3, name: 'Keyboard', price: 75, category: 'Electronics', inStock: false },
+                { id: 4, name: 'Monitor', price: 300, category: 'Electronics', inStock: true },
+                { id: 5, name: 'Headphones', price: 150, category: 'Electronics', inStock: true },
+                { id: 6, name: 'Smartphone', price: 799, category: 'Electronics', inStock: true },
+                { id: 7, name: 'Tablet', price: 450, category: 'Electronics', inStock: false },
+                { id: 8, name: 'Printer', price: 120, category: 'Electronics', inStock: true }
+            ]);
+            
+            const [selectedProductId, setSelectedProductId] = useState(null);
+            
+            // Сохраняем продукты в глобальную переменную для доступа из других компонентов
+            window.TEST_PRODUCTS = products;
+
+            return (
+                <div>
+                    <h1>React Functional Programming Demo</h1>
+                    <p>This demo shows React hooks: useState, useEffect, useCallback, useMemo, custom hooks</p>
+                    
+                    <div className="container">
+                        <ProductList 
+                            products={products} 
+                            onProductSelect={(id) => {
+                                setSelectedProductId(id);
+                                console.log('Selected product ID:', id);
+                            }}
+                        />
+                        
+                        <ShoppingCart 
+                            selectedProduct={selectedProductId}
+                            onSelectProduct={setSelectedProductId}
+                        />
+                    </div>
+                    
+                    <div style={{ marginTop: '30px', padding: '15px', background: '#f8f9fa', borderRadius: '5px' }}>
+                        <h3>Debug Info:</h3>
+                        <p>Selected Product ID: {selectedProductId || 'None'}</p>
+                        <p>Open browser console (F12) to see useEffect logs</p>
+                    </div>
+                </div>
+            );
+        }
+
+        // РЕНДЕРИМ ПРИЛОЖЕНИЕ
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

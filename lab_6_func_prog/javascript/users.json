@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "name": "Алексей Иванов",
+    "age": 28,
+    "city": "Москва",
+    "email": "alexey@example.com",
+    "isActive": true,
+    "registeredAt": "2023-05-15"
+  },
+  {
+    "id": 2,
+    "name": "Мария Петрова",
+    "age": 32,
+    "city": "Санкт-Петербург",
+    "email": "maria@example.com",
+    "isActive": false,
+    "registeredAt": "2022-11-20"
+  },
+  {
+    "id": 3,
+    "name": "Дмитрий Сидоров",
+    "age": 25,
+    "city": "Москва",
+    "email": "dmitry@example.com",
+    "isActive": true,
+    "registeredAt": "2024-01-10"
+  },
+  {
+    "id": 4,
+    "name": "Елена Козлова",
+    "age": 41,
+    "city": "Новосибирск",
+    "email": "elena@example.com",
+    "isActive": true,
+    "registeredAt": "2023-08-05"
+  },
+  {
+    "id": 5,
+    "name": "Сергей Волков",
+    "age": 19,
+    "city": "Москва",
+    "email": "sergey@example.com",
+    "isActive": true,
+    "registeredAt": "2024-02-28"
+  },
+  {
+    "id": 6,
+    "name": "Анна Смирнова",
+    "age": 37,
+    "city": "Санкт-Петербург",
+    "email": "anna@example.com",
+    "isActive": false,
+    "registeredAt": "2023-12-01"
+  },
+  {
+    "id": 7,
+    "name": "Игорь Николаев",
+    "age": 22,
+    "city": "Казань",
+    "email": "igor@example.com",
+    "isActive": true,
+    "registeredAt": "2024-03-15"
+  },
+  {
+    "id": 8,
+    "name": "Ольга Кузнецова",
+    "age": 29,
+    "city": "Москва",
+    "email": "olga@example.com",
+    "isActive": true,
+    "registeredAt": "2023-10-22"
+  },
+  {
+    "id": 9,
+    "name": "Павел Белов",
+    "age": 45,
+    "city": "Екатеринбург",
+    "email": "pavel@example.com",
+    "isActive": false,
+    "registeredAt": "2022-09-30"
+  },
+  {
+    "id": 10,
+    "name": "Наталья Морозова",
+    "age": 31,
+    "city": "Санкт-Петербург",
+    "email": "natalya@example.com",
+    "isActive": true,
+    "registeredAt": "2023-07-18"
+  },
+  {
+    "id": 11,
+    "name": "Артём Попов",
+    "age": 26,
+    "city": "Новосибирск",
+    "email": "artem@example.com",
+    "isActive": true,
+    "registeredAt": "2024-01-30"
+  },
+  {
+    "id": 12,
+    "name": "Виктория Лебедева",
+    "age": 33,
+    "city": "Москва",
+    "email": "victoria@example.com",
+    "isActive": false,
+    "registeredAt": "2023-11-11"
+  },
+  {
+    "id": 13,
+    "name": "Михаил Соколов",
+    "age": 40,
+    "city": "Казань",
+    "email": "mikhail@example.com",
+    "isActive": true,
+    "registeredAt": "2023-06-25"
+  },
+  {
+    "id": 14,
+    "name": "Юлия Орлова",
+    "age": 24,
+    "city": "Москва",
+    "email": "yulia@example.com",
+    "isActive": true,
+    "registeredAt": "2024-02-14"
+  },
+  {
+    "id": 15,
+    "name": "Андрей Новиков",
+    "age": 35,
+    "city": "Санкт-Петербург",
+    "email": "andrey@example.com",
+    "isActive": true,
+    "registeredAt": "2023-09-08"
+  }
+]

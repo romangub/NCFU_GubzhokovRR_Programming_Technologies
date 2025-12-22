@@ -16,4 +16,6 @@ grade score
 
 main = do
     print (square 10)
+    print (add 10 15)
+    print (absolute 100)
     putStrLn (grade 95) 
