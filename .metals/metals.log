@@ -2297,3 +2297,287 @@ java.util.concurrent.TimeoutException
 2025.12.24 22:36:17 INFO  Shutting down server
 2025.12.24 22:36:17 INFO  shutting down Metals
 2025.12.24 22:36:17 INFO  Exiting server
+2025.12.28 23:25:21 INFO  Started: Metals version 1.6.4 in folders 'C:\Users\DezerTear\Desktop\uni\progtech' for client Visual Studio Code 1.107.1.
+2025.12.28 23:25:22 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2025.12.28 23:25:22 INFO  Attempting to connect to the build server...
+2025.12.28 23:25:22 INFO  Running BSP server List(C:\Users\DezerTear\AppData\Local\Coursier\data\bin\.scala-cli.aux.exe, bsp, --json-options, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-options-v2.json, --json-launcher-options, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-launcher-options.json, --envs-file, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-envs.json, C:\Users\DezerTear\Desktop\uni\progtech)
+2025.12.28 23:25:24 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\DezerTear\Desktop\uni\progtech\.metals\bsp.trace.json or C:\Users\DezerTear\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2025.12.28 23:25:28 INFO  BSP server: Exception in thread "subprocess-shutdown-hook-monitor" java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:25:28 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+2025.12.28 23:25:28 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+2025.12.28 23:25:28 INFO  BSP server: 	at os.proc.proc$lzyINIT1$1(ProcessOps.scala:345)
+2025.12.28 23:25:28 INFO  BSP server: 	at os.proc.os$proc$$_$proc$1(ProcessOps.scala:351)
+2025.12.28 23:25:28 INFO  BSP server: 	at os.proc$$anon$2.run(ProcessOps.scala:335)
+2025.12.28 23:25:28 INFO  BSP server: 	at com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:775)
+2025.12.28 23:25:28 INFO  BSP server: 	at com.oracle.svm.core.windows.WindowsPlatformThreads.osThreadStartRoutine(WindowsPlatformThreads.java:178)
+2025.12.28 23:25:28 INFO  BSP server: Caused by: java.io.IOException: CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:25:28 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions$NewObjectWithObjectArrayArgFunctionPointer.invoke(JNIFunctions.java)
+2025.12.28 23:25:28 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions.ThrowNew(JNIFunctions.java:882)
+2025.12.28 23:25:28 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.create(ProcessImpl.java)
+2025.12.28 23:25:28 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.<init>(ProcessImpl.java:499)
+2025.12.28 23:25:28 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.start(ProcessImpl.java:158)
+2025.12.28 23:25:28 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+2025.12.28 23:25:28 INFO  BSP server: 	... 6 more
+2025.12.28 23:25:28 INFO  BSP server: Error: java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:25:28 INFO  BSP server: For more details, please see 'C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\stacktraces\1766953528-4637200120501833126.log'
+2025.12.28 23:25:28 INFO  BSP server: Exception in thread "subprocess-shutdown-hook" java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:25:28 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+2025.12.28 23:25:28 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+2025.12.28 23:25:28 INFO  BSP server: 	at os.proc.proc$lzyINIT1$1(ProcessOps.scala:345)
+2025.12.28 23:25:28 INFO  BSP server: 	at os.proc.os$proc$$_$proc$1(ProcessOps.scala:351)
+2025.12.28 23:25:28 INFO  BSP server: 	at os.proc$$anon$1.run(ProcessOps.scala:329)
+2025.12.28 23:25:28 INFO  BSP server: 	at com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:775)
+2025.12.28 23:25:28 INFO  BSP server: 	at com.oracle.svm.core.windows.WindowsPlatformThreads.osThreadStartRoutine(WindowsPlatformThreads.java:178)
+2025.12.28 23:25:28 INFO  BSP server: Caused by: java.io.IOException: CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:25:28 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions$NewObjectWithObjectArrayArgFunctionPointer.invoke(JNIFunctions.java)
+2025.12.28 23:25:28 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions.ThrowNew(JNIFunctions.java:882)
+2025.12.28 23:25:28 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.create(ProcessImpl.java)
+2025.12.28 23:25:28 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.<init>(ProcessImpl.java:499)
+2025.12.28 23:25:28 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.start(ProcessImpl.java:158)
+2025.12.28 23:25:28 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+2025.12.28 23:25:28 INFO  BSP server: 	... 6 more
+2025.12.28 23:26:24 ERROR Timeout waiting for 'build/initialize' response
+2025.12.28 23:26:24 WARN  Retrying connection to the build server scala-cli
+2025.12.28 23:26:24 INFO  Running BSP server List(C:\Users\DezerTear\AppData\Local\Coursier\data\bin\.scala-cli.aux.exe, bsp, --json-options, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-options-v2.json, --json-launcher-options, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-launcher-options.json, --envs-file, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-envs.json, C:\Users\DezerTear\Desktop\uni\progtech)
+2025.12.28 23:26:24 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\DezerTear\Desktop\uni\progtech\.metals\bsp.trace.json or C:\Users\DezerTear\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2025.12.28 23:26:26 INFO  BSP server: Exception in thread "subprocess-shutdown-hook-monitor" java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:26:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+2025.12.28 23:26:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+2025.12.28 23:26:26 INFO  BSP server: 	at os.proc.proc$lzyINIT1$1(ProcessOps.scala:345)
+2025.12.28 23:26:26 INFO  BSP server: 	at os.proc.os$proc$$_$proc$1(ProcessOps.scala:351)
+2025.12.28 23:26:26 INFO  BSP server: 	at os.proc$$anon$2.run(ProcessOps.scala:335)
+2025.12.28 23:26:26 INFO  BSP server: 	at com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:775)
+2025.12.28 23:26:26 INFO  BSP server: 	at com.oracle.svm.core.windows.WindowsPlatformThreads.osThreadStartRoutine(WindowsPlatformThreads.java:178)
+2025.12.28 23:26:26 INFO  BSP server: Caused by: java.io.IOException: CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:26:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions$NewObjectWithObjectArrayArgFunctionPointer.invoke(JNIFunctions.java)
+2025.12.28 23:26:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions.ThrowNew(JNIFunctions.java:882)
+2025.12.28 23:26:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.create(ProcessImpl.java)
+2025.12.28 23:26:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.<init>(ProcessImpl.java:499)
+2025.12.28 23:26:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.start(ProcessImpl.java:158)
+2025.12.28 23:26:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+2025.12.28 23:26:26 INFO  BSP server: 	... 6 more
+2025.12.28 23:26:26 INFO  BSP server: Error: java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:26:26 INFO  BSP server: For more details, please see 'C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\stacktraces\1766953586-17214316174644006123.log'
+2025.12.28 23:26:26 INFO  BSP server: Exception in thread "subprocess-shutdown-hook" java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:26:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+2025.12.28 23:26:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+2025.12.28 23:26:26 INFO  BSP server: 	at os.proc.proc$lzyINIT1$1(ProcessOps.scala:345)
+2025.12.28 23:26:26 INFO  BSP server: 	at os.proc.os$proc$$_$proc$1(ProcessOps.scala:351)
+2025.12.28 23:26:26 INFO  BSP server: 	at os.proc$$anon$1.run(ProcessOps.scala:329)
+2025.12.28 23:26:26 INFO  BSP server: 	at com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:775)
+2025.12.28 23:26:26 INFO  BSP server: 	at com.oracle.svm.core.windows.WindowsPlatformThreads.osThreadStartRoutine(WindowsPlatformThreads.java:178)
+2025.12.28 23:26:26 INFO  BSP server: Caused by: java.io.IOException: CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:26:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions$NewObjectWithObjectArrayArgFunctionPointer.invoke(JNIFunctions.java)
+2025.12.28 23:26:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions.ThrowNew(JNIFunctions.java:882)
+2025.12.28 23:26:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.create(ProcessImpl.java)
+2025.12.28 23:26:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.<init>(ProcessImpl.java:499)
+2025.12.28 23:26:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.start(ProcessImpl.java:158)
+2025.12.28 23:26:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+2025.12.28 23:26:26 INFO  BSP server: 	... 6 more
+2025.12.28 23:27:24 ERROR Timeout waiting for 'build/initialize' response
+2025.12.28 23:27:24 WARN  Retrying connection to the build server scala-cli
+2025.12.28 23:27:24 INFO  Running BSP server List(C:\Users\DezerTear\AppData\Local\Coursier\data\bin\.scala-cli.aux.exe, bsp, --json-options, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-options-v2.json, --json-launcher-options, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-launcher-options.json, --envs-file, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-envs.json, C:\Users\DezerTear\Desktop\uni\progtech)
+2025.12.28 23:27:24 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\DezerTear\Desktop\uni\progtech\.metals\bsp.trace.json or C:\Users\DezerTear\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2025.12.28 23:27:26 INFO  BSP server: Exception in thread "subprocess-shutdown-hook-monitor" java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:27:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+2025.12.28 23:27:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+2025.12.28 23:27:26 INFO  BSP server: 	at os.proc.proc$lzyINIT1$1(ProcessOps.scala:345)
+2025.12.28 23:27:26 INFO  BSP server: 	at os.proc.os$proc$$_$proc$1(ProcessOps.scala:351)
+2025.12.28 23:27:26 INFO  BSP server: 	at os.proc$$anon$2.run(ProcessOps.scala:335)
+2025.12.28 23:27:26 INFO  BSP server: 	at com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:775)
+2025.12.28 23:27:26 INFO  BSP server: 	at com.oracle.svm.core.windows.WindowsPlatformThreads.osThreadStartRoutine(WindowsPlatformThreads.java:178)
+2025.12.28 23:27:26 INFO  BSP server: Caused by: java.io.IOException: CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:27:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions$NewObjectWithObjectArrayArgFunctionPointer.invoke(JNIFunctions.java)
+2025.12.28 23:27:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions.ThrowNew(JNIFunctions.java:882)
+2025.12.28 23:27:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.create(ProcessImpl.java)
+2025.12.28 23:27:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.<init>(ProcessImpl.java:499)
+2025.12.28 23:27:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.start(ProcessImpl.java:158)
+2025.12.28 23:27:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+2025.12.28 23:27:26 INFO  BSP server: 	... 6 more
+2025.12.28 23:27:26 INFO  BSP server: Error: java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:27:26 INFO  BSP server: For more details, please see 'C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\stacktraces\1766953646-426986192126904169.log'
+2025.12.28 23:27:26 INFO  BSP server: Exception in thread "subprocess-shutdown-hook" java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:27:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+2025.12.28 23:27:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+2025.12.28 23:27:26 INFO  BSP server: 	at os.proc.proc$lzyINIT1$1(ProcessOps.scala:345)
+2025.12.28 23:27:26 INFO  BSP server: 	at os.proc.os$proc$$_$proc$1(ProcessOps.scala:351)
+2025.12.28 23:27:26 INFO  BSP server: 	at os.proc$$anon$1.run(ProcessOps.scala:329)
+2025.12.28 23:27:26 INFO  BSP server: 	at com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:775)
+2025.12.28 23:27:26 INFO  BSP server: 	at com.oracle.svm.core.windows.WindowsPlatformThreads.osThreadStartRoutine(WindowsPlatformThreads.java:178)
+2025.12.28 23:27:26 INFO  BSP server: Caused by: java.io.IOException: CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:27:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions$NewObjectWithObjectArrayArgFunctionPointer.invoke(JNIFunctions.java)
+2025.12.28 23:27:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions.ThrowNew(JNIFunctions.java:882)
+2025.12.28 23:27:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.create(ProcessImpl.java)
+2025.12.28 23:27:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.<init>(ProcessImpl.java:499)
+2025.12.28 23:27:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.start(ProcessImpl.java:158)
+2025.12.28 23:27:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+2025.12.28 23:27:26 INFO  BSP server: 	... 6 more
+2025.12.28 23:28:24 ERROR Timeout waiting for 'build/initialize' response
+2025.12.28 23:28:24 WARN  Retrying connection to the build server scala-cli
+2025.12.28 23:28:24 INFO  Running BSP server List(C:\Users\DezerTear\AppData\Local\Coursier\data\bin\.scala-cli.aux.exe, bsp, --json-options, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-options-v2.json, --json-launcher-options, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-launcher-options.json, --envs-file, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-envs.json, C:\Users\DezerTear\Desktop\uni\progtech)
+2025.12.28 23:28:24 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\DezerTear\Desktop\uni\progtech\.metals\bsp.trace.json or C:\Users\DezerTear\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2025.12.28 23:28:26 INFO  BSP server: Exception in thread "subprocess-shutdown-hook-monitor" java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:28:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+2025.12.28 23:28:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+2025.12.28 23:28:26 INFO  BSP server: 	at os.proc.proc$lzyINIT1$1(ProcessOps.scala:345)
+2025.12.28 23:28:26 INFO  BSP server: 	at os.proc.os$proc$$_$proc$1(ProcessOps.scala:351)
+2025.12.28 23:28:26 INFO  BSP server: 	at os.proc$$anon$2.run(ProcessOps.scala:335)
+2025.12.28 23:28:26 INFO  BSP server: 	at com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:775)
+2025.12.28 23:28:26 INFO  BSP server: 	at com.oracle.svm.core.windows.WindowsPlatformThreads.osThreadStartRoutine(WindowsPlatformThreads.java:178)
+2025.12.28 23:28:26 INFO  BSP server: Caused by: java.io.IOException: CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:28:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions$NewObjectWithObjectArrayArgFunctionPointer.invoke(JNIFunctions.java)
+2025.12.28 23:28:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions.ThrowNew(JNIFunctions.java:882)
+2025.12.28 23:28:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.create(ProcessImpl.java)
+2025.12.28 23:28:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.<init>(ProcessImpl.java:499)
+2025.12.28 23:28:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.start(ProcessImpl.java:158)
+2025.12.28 23:28:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+2025.12.28 23:28:26 INFO  BSP server: 	... 6 more
+2025.12.28 23:28:26 INFO  BSP server: Error: java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:28:26 INFO  BSP server: For more details, please see 'C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\stacktraces\1766953706-7422776169141243922.log'
+2025.12.28 23:28:26 INFO  BSP server: Exception in thread "subprocess-shutdown-hook" java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:28:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+2025.12.28 23:28:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+2025.12.28 23:28:26 INFO  BSP server: 	at os.proc.proc$lzyINIT1$1(ProcessOps.scala:345)
+2025.12.28 23:28:26 INFO  BSP server: 	at os.proc.os$proc$$_$proc$1(ProcessOps.scala:351)
+2025.12.28 23:28:26 INFO  BSP server: 	at os.proc$$anon$1.run(ProcessOps.scala:329)
+2025.12.28 23:28:26 INFO  BSP server: 	at com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:775)
+2025.12.28 23:28:26 INFO  BSP server: 	at com.oracle.svm.core.windows.WindowsPlatformThreads.osThreadStartRoutine(WindowsPlatformThreads.java:178)
+2025.12.28 23:28:26 INFO  BSP server: Caused by: java.io.IOException: CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:28:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions$NewObjectWithObjectArrayArgFunctionPointer.invoke(JNIFunctions.java)
+2025.12.28 23:28:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions.ThrowNew(JNIFunctions.java:882)
+2025.12.28 23:28:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.create(ProcessImpl.java)
+2025.12.28 23:28:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.<init>(ProcessImpl.java:499)
+2025.12.28 23:28:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.start(ProcessImpl.java:158)
+2025.12.28 23:28:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+2025.12.28 23:28:26 INFO  BSP server: 	... 6 more
+2025.12.28 23:29:24 ERROR Timeout waiting for 'build/initialize' response
+2025.12.28 23:29:24 WARN  Retrying connection to the build server scala-cli
+2025.12.28 23:29:24 INFO  Running BSP server List(C:\Users\DezerTear\AppData\Local\Coursier\data\bin\.scala-cli.aux.exe, bsp, --json-options, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-options-v2.json, --json-launcher-options, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-launcher-options.json, --envs-file, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-envs.json, C:\Users\DezerTear\Desktop\uni\progtech)
+2025.12.28 23:29:24 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\DezerTear\Desktop\uni\progtech\.metals\bsp.trace.json or C:\Users\DezerTear\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2025.12.28 23:29:26 INFO  BSP server: Exception in thread "subprocess-shutdown-hook-monitor" java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:29:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+2025.12.28 23:29:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+2025.12.28 23:29:26 INFO  BSP server: 	at os.proc.proc$lzyINIT1$1(ProcessOps.scala:345)
+2025.12.28 23:29:26 INFO  BSP server: 	at os.proc.os$proc$$_$proc$1(ProcessOps.scala:351)
+2025.12.28 23:29:26 INFO  BSP server: 	at os.proc$$anon$2.run(ProcessOps.scala:335)
+2025.12.28 23:29:26 INFO  BSP server: 	at com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:775)
+2025.12.28 23:29:26 INFO  BSP server: 	at com.oracle.svm.core.windows.WindowsPlatformThreads.osThreadStartRoutine(WindowsPlatformThreads.java:178)
+2025.12.28 23:29:26 INFO  BSP server: Caused by: java.io.IOException: CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:29:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions$NewObjectWithObjectArrayArgFunctionPointer.invoke(JNIFunctions.java)
+2025.12.28 23:29:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions.ThrowNew(JNIFunctions.java:882)
+2025.12.28 23:29:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.create(ProcessImpl.java)
+2025.12.28 23:29:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.<init>(ProcessImpl.java:499)
+2025.12.28 23:29:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.start(ProcessImpl.java:158)
+2025.12.28 23:29:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+2025.12.28 23:29:26 INFO  BSP server: 	... 6 more
+2025.12.28 23:29:26 INFO  BSP server: Error: java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:29:26 INFO  BSP server: For more details, please see 'C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\stacktraces\1766953766-10430031321425808022.log'
+2025.12.28 23:29:26 INFO  BSP server: Exception in thread "subprocess-shutdown-hook" java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:29:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+2025.12.28 23:29:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+2025.12.28 23:29:26 INFO  BSP server: 	at os.proc.proc$lzyINIT1$1(ProcessOps.scala:345)
+2025.12.28 23:29:26 INFO  BSP server: 	at os.proc.os$proc$$_$proc$1(ProcessOps.scala:351)
+2025.12.28 23:29:26 INFO  BSP server: 	at os.proc$$anon$1.run(ProcessOps.scala:329)
+2025.12.28 23:29:26 INFO  BSP server: 	at com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:775)
+2025.12.28 23:29:26 INFO  BSP server: 	at com.oracle.svm.core.windows.WindowsPlatformThreads.osThreadStartRoutine(WindowsPlatformThreads.java:178)
+2025.12.28 23:29:26 INFO  BSP server: Caused by: java.io.IOException: CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:29:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions$NewObjectWithObjectArrayArgFunctionPointer.invoke(JNIFunctions.java)
+2025.12.28 23:29:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions.ThrowNew(JNIFunctions.java:882)
+2025.12.28 23:29:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.create(ProcessImpl.java)
+2025.12.28 23:29:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.<init>(ProcessImpl.java:499)
+2025.12.28 23:29:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.start(ProcessImpl.java:158)
+2025.12.28 23:29:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+2025.12.28 23:29:26 INFO  BSP server: 	... 6 more
+���. 28, 2025 11:29:34 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 28, 2025 11:29:34 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2025.12.28 23:30:24 ERROR Timeout waiting for 'build/initialize' response
+2025.12.28 23:30:24 WARN  Retrying connection to the build server scala-cli
+2025.12.28 23:30:24 INFO  Running BSP server List(C:\Users\DezerTear\AppData\Local\Coursier\data\bin\.scala-cli.aux.exe, bsp, --json-options, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-options-v2.json, --json-launcher-options, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-launcher-options.json, --envs-file, C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\ide-envs.json, C:\Users\DezerTear\Desktop\uni\progtech)
+2025.12.28 23:30:24 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\DezerTear\Desktop\uni\progtech\.metals\bsp.trace.json or C:\Users\DezerTear\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2025.12.28 23:30:26 INFO  BSP server: Exception in thread "subprocess-shutdown-hook-monitor" java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:30:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+2025.12.28 23:30:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+2025.12.28 23:30:26 INFO  BSP server: 	at os.proc.proc$lzyINIT1$1(ProcessOps.scala:345)
+2025.12.28 23:30:26 INFO  BSP server: 	at os.proc.os$proc$$_$proc$1(ProcessOps.scala:351)
+2025.12.28 23:30:26 INFO  BSP server: 	at os.proc$$anon$2.run(ProcessOps.scala:335)
+2025.12.28 23:30:26 INFO  BSP server: 	at com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:775)
+2025.12.28 23:30:26 INFO  BSP server: 	at com.oracle.svm.core.windows.WindowsPlatformThreads.osThreadStartRoutine(WindowsPlatformThreads.java:178)
+2025.12.28 23:30:26 INFO  BSP server: Caused by: java.io.IOException: CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:30:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions$NewObjectWithObjectArrayArgFunctionPointer.invoke(JNIFunctions.java)
+2025.12.28 23:30:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions.ThrowNew(JNIFunctions.java:882)
+2025.12.28 23:30:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.create(ProcessImpl.java)
+2025.12.28 23:30:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.<init>(ProcessImpl.java:499)
+2025.12.28 23:30:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.start(ProcessImpl.java:158)
+2025.12.28 23:30:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+2025.12.28 23:30:26 INFO  BSP server: 	... 6 more
+2025.12.28 23:30:26 INFO  BSP server: Error: java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:30:26 INFO  BSP server: For more details, please see 'C:\Users\DezerTear\Desktop\uni\progtech\.scala-build\stacktraces\1766953826-15887446817759020266.log'
+2025.12.28 23:30:26 INFO  BSP server: Exception in thread "subprocess-shutdown-hook" java.io.IOException: Cannot run program "C:\Program Files\Eclipse Adoptium\jdk-11.0.29.7-hotspot\jdk-25\bin\java.exe" (in directory "C:\Users\DezerTear\Desktop\uni\progtech"): CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:30:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+2025.12.28 23:30:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+2025.12.28 23:30:26 INFO  BSP server: 	at os.proc.proc$lzyINIT1$1(ProcessOps.scala:345)
+2025.12.28 23:30:26 INFO  BSP server: 	at os.proc.os$proc$$_$proc$1(ProcessOps.scala:351)
+2025.12.28 23:30:26 INFO  BSP server: 	at os.proc$$anon$1.run(ProcessOps.scala:329)
+2025.12.28 23:30:26 INFO  BSP server: 	at com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:775)
+2025.12.28 23:30:26 INFO  BSP server: 	at com.oracle.svm.core.windows.WindowsPlatformThreads.osThreadStartRoutine(WindowsPlatformThreads.java:178)
+2025.12.28 23:30:26 INFO  BSP server: Caused by: java.io.IOException: CreateProcess error=2, Не удается найти указанный файл
+2025.12.28 23:30:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions$NewObjectWithObjectArrayArgFunctionPointer.invoke(JNIFunctions.java)
+2025.12.28 23:30:26 INFO  BSP server: 	at com.oracle.svm.core.jni.functions.JNIFunctions.ThrowNew(JNIFunctions.java:882)
+2025.12.28 23:30:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.create(ProcessImpl.java)
+2025.12.28 23:30:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.<init>(ProcessImpl.java:499)
+2025.12.28 23:30:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessImpl.start(ProcessImpl.java:158)
+2025.12.28 23:30:26 INFO  BSP server: 	at java.base@17.0.6/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+2025.12.28 23:30:26 INFO  BSP server: 	... 6 more
+2025.12.28 23:31:24 ERROR Timeout waiting for 'build/initialize' response
+2025.12.28 23:31:24 ERROR Failed to connect with build server, no functionality will work.
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at scala.meta.internal.metals.BuildServerConnection$.initialize(BuildServerConnection.scala:787)
+	at scala.meta.internal.metals.BuildServerConnection$.$anonfun$fromSockets$1(BuildServerConnection.scala:658)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:840)
+
+���. 28, 2025 11:31:34 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 28, 2025 11:31:34 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 1:20:20 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 1:20:20 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 1:20:21 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 1:20:21 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 1:25:39 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 1:25:39 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 1:30:16 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 1:30:16 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 2:00:29 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 2:00:29 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 2:04:00 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 2:04:00 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 2:33:30 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 2:33:30 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 2:33:30 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+���. 29, 2025 2:33:30 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2025.12.29 02:33:30 INFO  Shutting down server
+2025.12.29 02:33:30 INFO  shutting down Metals
+2025.12.29 02:33:30 INFO  Exiting server

@@ -1,0 +1,50 @@
+{
+  "all_employees": [
+    {
+      "base_salary": 5000.0,
+      "calculated_salary": 5000.0,
+      "department": "Development",
+      "id": 1,
+      "name": "John",
+      "type": "Employee"
+    }
+  ],
+  "departments": [
+    {
+      "employee_count": 1,
+      "employees": [
+        {
+          "base_salary": 5000.0,
+          "calculated_salary": 5000.0,
+          "department": "Development",
+          "id": 1,
+          "name": "John",
+          "type": "Employee"
+        }
+      ],
+      "name": "Development",
+      "total_salary": 5000.0,
+      "type": "Department"
+    }
+  ],
+  "indices": {
+    "employee_departments": {
+      "1": "Development"
+    },
+    "employee_projects": {
+      "1": []
+    }
+  },
+  "name": "TechCorp",
+  "projects": [],
+  "serialized_at": "2025-12-29T01:30:53.449277",
+  "statistics": {
+    "average_salary_per_employee": 5000.0,
+    "total_departments": 1,
+    "total_employees": 1,
+    "total_monthly_cost": 5000.0,
+    "total_projects": 0
+  },
+  "type": "Company",
+  "version": "1.0"
+}
